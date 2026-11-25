@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="650.0" prefWidth="1000.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cl.duoc.farmacia.controller.FarmaciaController">
+
+   <top>
+      <VBox prefHeight="60.0" prefWidth="100.0"
+            spacing="8.0"
+            BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Sistema de Gestión de Farmacia." />
+            <Label text="Administración de medicamentos e inventario" />
+         </children>
+      </VBox>
+   </top>
+
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0"
+            spacing="15.0"
+            BorderPane.alignment="CENTER">
+
+         <padding>
+            <Insets bottom="15.0" left="15.0"
+                    right="15.0" top="15.0" />
+         </padding>
+
+         <children>
+            <Label text="Inventario de medicamentos" />
+
+            <HBox prefHeight="100.0" prefWidth="200.0"
+                  spacing="10.0">
+               <children>
+                  <TextField fx:id="txtBuscar"
+                             promptText="Buscar por nombre o código..." />
+
+                  <Button fx:id="btnRegistrar"
+                          mnemonicParsing="false"
+                          text="Registrar"
+                          onAction="#abrirFormularioRegistro" />
+
+                  <Button fx:id="btnEditar"
+                          mnemonicParsing="false"
+                          text="Editar"
+                          onAction="#abrirFormularioEdicion" />
+
+                  <Button fx:id="btnEliminar"
+                          mnemonicParsing="false"
+                          text="Eliminar"
+                          onAction="#eliminarMedicamento" />
+
+                  <Button fx:id="btnRegistrarLote"
+                          mnemonicParsing="false"
+                          text="Registrar ingreso"
+                          onAction="#abrirFormularioLote" />
+
+                  <Button fx:id="btnConsultarLotes"
+                          mnemonicParsing="false"
+                          text="Consultar lotes"
+                          onAction="#abrirConsultaLotes" />
+               </children>
+            </HBox>
+
+            <TableView fx:id="tablaMedicamentos"
+                       prefHeight="200.0"
+                       prefWidth="200.0">
+               <columns>
+                  <TableColumn fx:id="colCodigo"
+                               prefWidth="75.0"
+                               text="Código" />
+
+                  <TableColumn fx:id="colNombre"
+                               prefWidth="93.0"
+                               text="Medicamento" />
+
+                  <TableColumn fx:id="colUnidad"
+                               prefWidth="121.0"
+                               text="Unidad de medida" />
+
+                  <TableColumn fx:id="colStock"
+                               minWidth="0.0"
+                               prefWidth="106.0"
+                               text="Stock disponible" />
+
+                  <TableColumn fx:id="colEstado"
+                               prefWidth="120.0"
+                               text="Estado" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+
+</BorderPane>
